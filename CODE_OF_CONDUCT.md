@@ -1,33 +1,29 @@
-# Code of Conduct
+# 行为准则
 
-## Our Standard
+## 我们的标准
 
-Contributors and maintainers are expected to keep discussion technical,
-respectful, and constructive.
+贡献者和维护者应保持讨论的技术性、尊重性和建设性。
 
-Examples of expected behavior:
+期望的行为：
 
-- Focus on the problem, tradeoffs, and evidence.
-- Assume good intent, but challenge weak reasoning directly.
-- Share actionable feedback.
-- Respect different levels of experience and domain knowledge.
+- 聚焦问题、权衡和证据。
+- 假定善意，但直接质疑薄弱的推理。
+- 提供可操作的反馈。
+- 尊重不同经验和领域知识水平。
 
-Examples of unacceptable behavior:
+不可接受的行为：
 
-- Harassment, insults, or personal attacks
-- Bad-faith argumentation or repeated hostility
-- Publishing private or sensitive information without permission
-- Disruptive behavior that blocks productive collaboration
+- 骚扰、侮辱或人身攻击
+- 恶意争论或反复敌对
+- 未经许可发布私人或敏感信息
+- 阻碍 productive 协作的破坏性行为
 
-## Enforcement
+## 执行
 
-Project maintainers may remove comments, reject contributions, or restrict
-participation for behavior that violates this code of conduct.
+项目维护者有权删除评论、拒绝贡献或限制违反行为准则的参与者。
 
-Serious or repeated violations may result in a temporary or permanent ban from
-project spaces.
+严重或屡次违规可能导致在项目空间中被临时或永久禁言。
 
-## Reporting
+## 举报
 
-Report conduct issues privately to the maintainers through a private maintainer
-channel. Do not use public issues for personal or sensitive reports.
+请通过私密渠道向维护者举报行为问题。不要使用公开 Issue 提交个人或敏感举报。

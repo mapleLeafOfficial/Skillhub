@@ -1,32 +1,30 @@
-# Contributing to SkillHub
+# 贡献指南
 
-## Scope
+## 范围
 
-SkillHub is a self-hosted registry for agent skills. Contributions should
-preserve the existing architecture and product direction documented in
-[`docs/`](./docs).
+SkillHub 是一个可私有化部署的 Agent 技能注册中心。贡献内容应保持现有架构和 [`docs/`](./docs) 中记录的产品方向一致。
 
-## Before You Start
+## 开始之前
 
-- Read [`README.md`](./README.md) for local development commands.
-- Check the relevant design docs before changing behavior.
-- Open an issue for non-trivial changes before sending a large pull request.
+- 阅读 [`README.md`](./README.md) 了解本地开发命令。
+- 修改行为前先查阅相关设计文档。
+- 非简单的改动请先开 Issue 讨论，再提交大型 Pull Request。
 
-## Development Setup
+## 开发环境
 
-Prerequisites:
+前置要求：
 
-- Docker and Docker Compose
+- Docker 和 Docker Compose
 - Java 21
-- Node.js and `pnpm`
+- Node.js 和 `pnpm`
 
-Start the local stack:
+启动本地环境：
 
 ```bash
 make dev-all
 ```
 
-Useful commands:
+常用命令：
 
 ```bash
 make test
@@ -37,45 +35,42 @@ make generate-api
 ./scripts/smoke-test.sh
 ```
 
-Stop the stack:
+停止服务：
 
 ```bash
 make dev-all-down
 ```
 
-## Change Guidelines
+## 变更规范
 
-- Keep changes focused. Avoid mixing refactors with behavior changes.
-- Follow existing module boundaries across `server/`, `web/`, and `docs/`.
-- Add or update tests when behavior changes.
-- Update docs when APIs, auth flows, deployment, or operator workflows change.
-- Regenerate and commit `web/src/api/generated/schema.d.ts` when backend OpenAPI
-  contracts change.
-- Prefer backward-compatible changes unless the issue explicitly allows a break.
+- 保持改动聚焦，避免将重构和行为变更混在一起。
+- 遵循 `server/`、`web/` 和 `docs/` 中现有的模块边界。
+- 行为变更时添加或更新测试。
+- API、认证流程、部署或运维流程变更时更新文档。
+- 后端 OpenAPI 契约变更时，运行 `make generate-api` 并提交 `web/src/api/generated/schema.d.ts`。
+- 优先保持向后兼容，除非 Issue 明确允许破坏性变更。
 
-## Pull Requests
+## Pull Request
 
-Before opening a pull request, make sure:
+提交 Pull Request 前请确保：
 
-- The branch is rebased or merged cleanly from the target branch.
-- Relevant backend tests pass.
-- Frontend typecheck/build passes when frontend files changed.
-- `make generate-api` or `./scripts/check-openapi-generated.sh` has been run when
-  backend API contracts changed.
-- Smoke coverage is updated when operator-facing workflows change.
-- The pull request description explains motivation, scope, and rollout impact.
+- 分支已与目标分支干净合并或变基。
+- 相关后端测试通过。
+- 前端文件变更时类型检查和构建通过。
+- 后端 API 契约变更时已运行 `make generate-api` 或 `./scripts/check-openapi-generated.sh`。
+- 运维相关流程变更时已更新冒烟测试。
+- PR 描述说明动机、范围和发布影响。
 
-## Commit Style
+## 提交风格
 
-Conventional-style subjects are preferred, for example:
+推荐使用约定式提交格式，例如：
 
 - `feat(auth): add local account login`
 - `fix(ops): align smoke test with csrf flow`
 - `docs(deploy): clarify runtime image usage`
 
-## Reporting Security Issues
+## 安全问题报告
 
-Do not open public issues for suspected security vulnerabilities.
+请勿公开提交安全漏洞相关 Issue。
 
-Use GitHub Security Advisories or your internal security process to report them
-privately to the maintainers.
+使用 GitHub Security Advisories 或内部安全流程私下向维护者报告。
