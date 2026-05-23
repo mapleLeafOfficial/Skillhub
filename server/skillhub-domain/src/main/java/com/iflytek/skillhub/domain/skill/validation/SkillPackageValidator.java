@@ -3,6 +3,7 @@ package com.iflytek.skillhub.domain.skill.validation;
 import com.iflytek.skillhub.domain.shared.exception.LocalizedDomainException;
 import com.iflytek.skillhub.domain.skill.metadata.SkillMetadataParser;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -87,7 +88,7 @@ public class SkillPackageValidator {
 
         // 2. Validate frontmatter
         try {
-            String content = new String(skillMd.content());
+            String content = new String(skillMd.content(), StandardCharsets.UTF_8);
             metadataParser.parse(content);
         } catch (LocalizedDomainException e) {
             errors.add("Invalid SKILL.md frontmatter: " + formatMetadataError(e));

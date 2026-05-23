@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { ApiError, profileApi } from '@/api/client'
@@ -250,6 +251,14 @@ export function ProfileSettingsPage() {
               </div>
             ) : null}
           </form>
+
+          {user?.oauthProvider == null || user?.oauthProvider === 'local' ? (
+            <div className="pt-4 border-t">
+              <Link to="/settings/security" className="text-sm text-primary hover:underline">
+                {t('profile.changePassword')}
+              </Link>
+            </div>
+          ) : null}
 
           {/* Review status banner */}
           {pendingChanges?.status === 'PENDING' ? (

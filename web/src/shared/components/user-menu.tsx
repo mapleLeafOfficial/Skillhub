@@ -35,7 +35,7 @@ export function UserMenu({ user, triggerClassName }: UserMenuProps) {
   const isAuditor = hasRole('AUDITOR') || hasRole('SUPER_ADMIN')
   const isSuperAdmin = hasRole('SUPER_ADMIN')
   const canAccessReviewCenter = isReviewer || isUserAdmin
-  const isLocalAccount = !user.oauthProvider
+  const isLocalAccount = !user.oauthProvider || user.oauthProvider === 'local'
   const open = isHovered || isClickOpen
 
   const clearCloseTimer = () => {

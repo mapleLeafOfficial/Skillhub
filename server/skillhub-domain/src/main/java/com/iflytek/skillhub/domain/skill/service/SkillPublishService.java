@@ -32,6 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
+import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -208,7 +209,7 @@ public class SkillPublishService {
                 .findFirst()
                 .orElseThrow(() -> new DomainBadRequestException("error.skill.publish.skillMd.notFound"));
 
-        String skillMdContent = new String(skillMd.content());
+        String skillMdContent = new String(skillMd.content(), StandardCharsets.UTF_8);
         SkillMetadata metadata = skillMetadataParser.parse(skillMdContent);
         if (metadata.version() == null || metadata.version().isBlank()) {
             String autoVersion = AUTO_VERSION_FORMATTER.format(currentTime());
@@ -511,7 +512,7 @@ public class SkillPublishService {
     }
 
     private byte[] rewriteSkillMdVersion(byte[] content, String targetVersion) {
-        String skillMdContent = new String(content);
+        String skillMdContent = new String(content, StandardCharsets.UTF_8);
         SkillMetadata metadata = skillMetadataParser.parse(skillMdContent);
         Map<String, Object> frontmatter = new LinkedHashMap<>(metadata.frontmatter());
         frontmatter.put("version", targetVersion);
@@ -519,7 +520,7 @@ public class SkillPublishService {
                 + new Yaml().dump(frontmatter).trim()
                 + "\n---\n"
                 + metadata.body();
-        return rewritten.getBytes();
+        return rewritten.getBytes(StandardCharsets.UTF_8);
     }
 
     private List<Map<String, Object>> buildManifest(List<PackageEntry> entries) {

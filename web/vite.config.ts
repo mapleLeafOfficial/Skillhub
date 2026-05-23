@@ -20,11 +20,11 @@ export default defineConfig({
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://10.0.0.18:8770',
         changeOrigin: true,
       },
       '/oauth2': {
-        target: 'http://localhost:8080',
+        target: 'http://10.0.0.18:8770',
         changeOrigin: true,
       },
     },

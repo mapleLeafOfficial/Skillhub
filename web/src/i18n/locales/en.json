@@ -661,7 +661,8 @@
     "reviewHint": "Some changes require admin review before taking effect.",
     "partiallyAppliedTitle": "Partially Applied",
     "partiallyAppliedDescription": "Some changes were applied immediately. Others are pending admin review.",
-    "noChanges": "No changes to save."
+    "noChanges": "No changes to save.",
+    "changePassword": "Change password"
   },
   "security": {
     "title": "Security Settings",
